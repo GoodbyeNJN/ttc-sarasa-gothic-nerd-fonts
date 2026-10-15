@@ -21,8 +21,8 @@ jobs:
         id: check
         run: |
           # get the latest version
-          LATEST_VERSION=$(curl -fsSL https://api.github.com/repos/jonz94/Sarasa-Gothic-Nerd-Fonts/releases/latest | jq -r .tag_name | cut -d v -f 2)
-          echo latest version of jonz94/Sarasa-Gothic-Nerd-Fonts is ${LATEST_VERSION}
+          LATEST_VERSION=$(curl -fsSL https://api.github.com/repos/GoodbyeNJN/Sarasa-Gothic-Nerd-Fonts/releases/latest | jq -r .tag_name | cut -d v -f 2)
+          echo latest version of GoodbyeNJN/Sarasa-Gothic-Nerd-Fonts is ${LATEST_VERSION}
 
           # get the current version
           CURRENT_VERSION=$(cat ${GITHUB_WORKSPACE}/VERSION)
@@ -73,12 +73,12 @@ jobs:
       - name: download fonts
         run: |
           # get the latest tag
-          LATEST_TAG=$(curl --silent https://api.github.com/repos/jonz94/Sarasa-Gothic-Nerd-Fonts/releases/latest | jq -r .tag_name)
+          LATEST_TAG=$(curl --silent https://api.github.com/repos/GoodbyeNJN/Sarasa-Gothic-Nerd-Fonts/releases/latest | jq -r .tag_name)
           if [[ "${LATEST_TAG}" == "null" ]]; then
-            echo cannot get latest tag of jonz94/Sarasa-Gothic-Nerd-Fonts
+            echo cannot get latest tag of GoodbyeNJN/Sarasa-Gothic-Nerd-Fonts
             exit 1
           fi
-          echo latest tag of jonz94/Sarasa-Gothic-Nerd-Fonts is ${LATEST_TAG}
+          echo latest tag of GoodbyeNJN/Sarasa-Gothic-Nerd-Fonts is ${LATEST_TAG}
           env LATEST_TAG=${LATEST_TAG} bash download-fonts.sh
 
       - name: install build-essential
